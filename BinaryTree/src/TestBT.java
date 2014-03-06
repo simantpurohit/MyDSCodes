@@ -4,7 +4,7 @@ public class TestBT {
 	public static void main(String[] args) {
 //		int balancedCount = 0;
 //		int notBalancedCount = 0;
-		int size = 8000;
+		int size = 8;
 		BST tree = new BST((int)(Math.random()*size));
 		tree.construstRandomTree(size, size+1);
 		
@@ -36,7 +36,10 @@ public class TestBT {
 		System.out.println("Distance from LCA:"+tree.distanceFrom(LCANode, 0, x));
 		System.out.println("Distance from LCA:"+tree.distanceFrom(LCANode, 0, y));
 		System.out.println("Distance between the two nodes:"+tree.distanceBetweenNodes(x, y));
-		///tree.findKthNodesFromLeaf(tree.root, tree.path, 2, 0);
+		//tree.findKthNodesFromLeaf(tree.root, tree.path, 2, 0);
+		
+		System.out.println("Trying to delete node:"+x+" and result is:"+tree.deleteNode(x,tree.root));
+		tree.levelOrder(tree.root);
 	}
 
 }

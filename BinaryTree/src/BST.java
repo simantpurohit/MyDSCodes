@@ -148,7 +148,7 @@ public class BST {
 		}
 	}
 	
-	//find if node in tree
+	//check if node in tree
 	public boolean checkNode(BinaryNode root, int data){
 		if(root == null)
 			return false;
@@ -169,6 +169,30 @@ public class BST {
 		}
 		else
 			return false;
+			
+	}
+	
+	//check if node in tree
+	public BinaryNode findNode(BinaryNode root, int data){
+		if(root == null)
+			return null;
+		
+		if(root.data == data){
+			//System.out.println("Found!");
+			return root;
+		}
+		
+		if(data > root.data){
+			//System.out.println("Checking right");
+			return findNode(root.right, data);
+		}
+		
+		if(data < root.data){
+			//System.out.println("Checking left");
+			return findNode(root.left, data);
+		}
+		else
+			return null;
 			
 	}
 	
@@ -226,7 +250,7 @@ public class BST {
 	
 	//Distance between two nodes
 	public int distanceBetweenNodes(int x, int y){
-		if(checkNode(root, x)&&checkNode(root, y)){
+		if(checkNode(root, x) && checkNode(root, y)){
 			BinaryNode LCANode = findLCA(x, y, root);
 			int dist1 = distanceFrom(LCANode, 0, x);
 			int dist2 = distanceFrom(LCANode, 0, y);
@@ -235,5 +259,28 @@ public class BST {
 		
 		else
 			return 0;
+	}
+	
+	//Delete a node from tree
+	public boolean deleteNode(int x, BinaryNode root){
+		BinaryNode nodeToDelete = findNode(root, x);
+		if(nodeToDelete != null){
+			//check to see if the node has only left child
+			
+			//check to see if the node has only right child
+			
+			//check to see if the node is a leaf
+			if(nodeToDelete.left == null && nodeToDelete.right == null){
+				nodeToDelete = null;
+				return true;
+			}
+			//check to see if the node has two children
+			
+			else
+				return false;
+		}
+		
+		else 
+			return false;
 	}
 }

@@ -36,10 +36,7 @@ public class TestBT {
 		System.out.println("Distance from LCA:"+tree.distanceFrom(LCANode, 0, x));
 		System.out.println("Distance from LCA:"+tree.distanceFrom(LCANode, 0, y));
 		System.out.println("Distance between the two nodes:"+tree.distanceBetweenNodes(x, y));
-		//tree.findKthNodesFromLeaf(tree.root, tree.path, 2, 0);
-		
-		System.out.println("Trying to delete node:"+x+" and result is:"+tree.deleteNode(x,tree.root));
-		tree.levelOrder(tree.root);
+		tree.findKthNodesFromLeaf(tree.root, tree.path, 2, 0);
 	}
 
 }

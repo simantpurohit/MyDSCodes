@@ -199,7 +199,6 @@ public class BST {
 	//LCA
 	public BinaryNode findLCA(int x, int y, BinaryNode root){
 		
-		
 		if(root.data == x || root.data == y){
 			System.out.println("Found LCA with data:"+root.data);
 			return root;
@@ -261,26 +260,4 @@ public class BST {
 			return 0;
 	}
 	
-	//Delete a node from tree
-	public boolean deleteNode(int x, BinaryNode root){
-		BinaryNode nodeToDelete = findNode(root, x);
-		if(nodeToDelete != null){
-			//check to see if the node has only left child
-			
-			//check to see if the node has only right child
-			
-			//check to see if the node is a leaf
-			if(nodeToDelete.left == null && nodeToDelete.right == null){
-				nodeToDelete = null;
-				return true;
-			}
-			//check to see if the node has two children
-			
-			else
-				return false;
-		}
-		
-		else 
-			return false;
-	}
 }

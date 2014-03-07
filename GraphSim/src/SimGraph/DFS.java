@@ -1,48 +1,44 @@
 package SimGraph;
 
 import java.util.LinkedHashSet;
+import java.util.Stack;
 
-public class BFS {
+public class DFS {
 	Graph G;
 	boolean[] visited;
 	int[] edgeTo;
 	int[] distTo;
-	int BFSSource;
-	Queue<Integer> vertexQ;
+	int DFSSource;
+	Stack<Integer> vertexQ;
 	
-	public BFS(Graph G){
-		this.G=G;
-		vertexQ = new Queue<Integer>();
-		this.BFSSource = 0;
-		
-		visited = new boolean[G.V()];
-		edgeTo = new int[G.V()];
-		distTo = new int[G.V()];
-		
+	public DFS(Graph G){
+		this.G= G;
+		vertexQ = new Stack<Integer>();
+		this.DFSSource = 0;
 		for(int i=0;i<G.V();i++){
-			visited[i] = false;
-			edgeTo[i] = i;
-			distTo[i] = 0;
+			visited = new boolean[G.V()];
+			edgeTo = new int[G.V()];
+			distTo = new int[G.V()];
 		}
 		
 	}
 	
-	public void runBFS(){
+	public void runDFS(){
 		if(G == null)
 			return;
-		if(BFSSource >= G.getAdjacent().size())
+		if(DFSSource >= G.getAdjacent().size())
 			return;
 		
-		vertexQ.enqueue(BFSSource);
-		visited[BFSSource] = true;
-		distTo[BFSSource] = 0;
+		vertexQ.push(DFSSource);
+		visited[DFSSource] = true;
+		distTo[DFSSource] = 0;
 		
 		while(!vertexQ.isEmpty()){
-			int v = vertexQ.dequeue();
+			int v = vertexQ.pop();
 			LinkedHashSet<Integer> adj = G.getAdjacentNodes(v);
 			for(Integer u:adj){
 				if(!visited[u]){
-					vertexQ.enqueue(u);
+					vertexQ.push(u);
 					visited[u] = true;
 					edgeTo[u] = v;
 					distTo[u] = distTo[v] + 1;
@@ -58,21 +54,17 @@ public class BFS {
 			System.out.println("Printing path to source for node:"+i+" Total distance:"+distTo[i]);
 			int temp = i;
 			System.out.print(i+"--");
-			while(edgeTo[temp] != BFSSource && visited[temp]){
+			while(edgeTo[temp] != DFSSource && visited[temp]){
 				System.out.print(edgeTo[temp]+"--");
 				temp = edgeTo[temp];
 			}
-			System.out.print(BFSSource);
+			System.out.print(DFSSource);
 			System.out.println(" ");
 		}
 	}
 	
 	public static void main(String args[]){
 		Graph G = Graph.generateRandomGraph();
-		System.out.println("------------------Running BFS-----------------\n\n");
-		BFS bfs = new BFS(G);
-		bfs.runBFS();
-		System.out.println("------------------Running DFS-----------------");
 		DFS dfs = new DFS(G);
 		dfs.runDFS();
 		

@@ -55,7 +55,8 @@ public class DFS {
 		LinkedHashSet<Integer> adj = G.getAdjacentNodes(v);
         for (Integer w:adj) {
             if (!visited[w]) {
-                edgeTo[w] = v;
+            	visited[w] = true;
+            	edgeTo[w] = v;
             	runDFS(w);
             }
         }

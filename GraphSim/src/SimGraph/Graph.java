@@ -67,33 +67,33 @@ public class Graph {
 		System.out.println("----------------------------------------");
 	}
 	
-//	public static Graph generateRandomGraph(){
-//		int vertices = (int)(Math.random()*10);
-//		Graph G = new Graph(vertices);
-//		for(int i=0;i<vertices*2;i++){
-//			G.addEdge((int)(Math.random()*vertices), (int)(Math.random()*vertices));
-//		}
-//		G.printGraph();
-//		return G;
-//	}
-	
 	public static Graph generateRandomGraph(){
-		int vertices = 8;
+		int vertices = (int)(Math.random()*10);
 		Graph G = new Graph(vertices);
-		G.addEdge(0, 1);
-		G.addEdge(0, 2);
-		G.addEdge(1, 2);
-		G.addEdge(1, 3);
-		G.addEdge(1, 4);
-		G.addEdge(2, 6);
-		G.addEdge(2, 7);
-		G.addEdge(2, 4);
-		G.addEdge(3, 4);
-		G.addEdge(4, 5);
-		G.addEdge(6, 7);
-		
+		for(int i=0;i<vertices*2;i++){
+			G.addEdge((int)(Math.random()*vertices), (int)(Math.random()*vertices));
+		}
+		G.printGraph();
 		return G;
 	}
+	
+//	public static Graph generateRandomGraph(){
+//		int vertices = 8;
+//		Graph G = new Graph(vertices);
+//		G.addEdge(0, 1);
+//		G.addEdge(0, 2);
+//		G.addEdge(1, 2);
+//		G.addEdge(1, 3);
+//		G.addEdge(1, 4);
+//		G.addEdge(2, 6);
+//		G.addEdge(2, 7);
+//		G.addEdge(2, 4);
+//		G.addEdge(3, 4);
+//		G.addEdge(4, 5);
+//		G.addEdge(6, 7);
+//		
+//		return G;
+//	}
 
 	public static void main(String args[]){
 		int vertices = (int)(Math.random()*100);

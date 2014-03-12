@@ -23,30 +23,42 @@ public class DFS {
 		
 	}
 	
-	public void runDFS(){
-		if(G == null)
-			return;
-		if(DFSSource >= G.getAdjacent().size())
-			return;
-		
-		vertexQ.push(DFSSource);
-		visited[DFSSource] = true;
-		distTo[DFSSource] = 0;
-		
-		while(!vertexQ.isEmpty()){
-			int v = vertexQ.pop();
-			LinkedHashSet<Integer> adj = G.getAdjacentNodes(v);
-			for(Integer u:adj){
-				if(!visited[u]){
-					vertexQ.push(u);
-					visited[u] = true;
-					edgeTo[u] = v;
-					distTo[u] = distTo[v] + 1;
-				}
-			}
-		}
-		
-		printPathsToSource();
+//	public void runDFS(){
+//		if(G == null)
+//			return;
+//		if(DFSSource >= G.getAdjacent().size())
+//			return;
+//		
+//		vertexQ.push(DFSSource);
+//		visited[DFSSource] = true;
+//		distTo[DFSSource] = 0;
+//		
+//		while(!vertexQ.isEmpty()){
+//			int v = vertexQ.pop();
+//			LinkedHashSet<Integer> adj = G.getAdjacentNodes(v);
+//			for(Integer u:adj){
+//				if(!visited[u]){
+//					vertexQ.push(u);
+//					visited[u] = true;
+//					edgeTo[u] = v;
+//					distTo[u] = distTo[v] + 1;
+//				}
+//			}
+//		}
+//		
+//		printPathsToSource();
+//	}
+	
+	
+	public void runDFS(int v){
+		visited[v] = true;
+		LinkedHashSet<Integer> adj = G.getAdjacentNodes(v);
+        for (Integer w:adj) {
+            if (!visited[w]) {
+                edgeTo[w] = v;
+            	runDFS(w);
+            }
+        }
 	}
 
 	public void printPathsToSource(){
@@ -66,7 +78,7 @@ public class DFS {
 	public static void main(String args[]){
 		Graph G = Graph.generateRandomGraph();
 		DFS dfs = new DFS(G);
-		dfs.runDFS();
+		dfs.runDFS(0);
 		
 	}
 }

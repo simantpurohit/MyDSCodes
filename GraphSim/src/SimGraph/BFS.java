@@ -74,7 +74,8 @@ public class BFS {
 		bfs.runBFS();
 		System.out.println("------------------Running DFS-----------------");
 		DFS dfs = new DFS(G);
-		dfs.runDFS();
+		dfs.runDFS(0);
+		dfs.printPathsToSource();
 		
 	}
 }

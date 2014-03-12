@@ -27,8 +27,8 @@ public class Graph {
 	}
 
 	public Graph(int V){
-		if(V < 0)
-			return;
+		if(V <= 0)
+			throw new IllegalArgumentException();
 		this.V = V;
 		this.E = 0;
 		for(int i=0;i<V;i++){

@@ -50,7 +50,7 @@ public class BFS {
 			}
 		}
 		
-		printPathsToSource();
+		//printPathsToSource();
 	}
 
 	public void printPathsToSource(){

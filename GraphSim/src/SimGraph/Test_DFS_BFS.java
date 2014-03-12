@@ -18,7 +18,7 @@ public class Test_DFS_BFS {
 		System.out.println("------------------Running BFS-----------------\n\n");
 		BFS bfs = new BFS(G);
 		bfs.runBFS();
-		bfs.printPathsToSource();
+		//bfs.printPathsToSource();
 	}
 	
 	@Test
@@ -26,7 +26,7 @@ public class Test_DFS_BFS {
 		System.out.println("------------------Running DFS-----------------");
 		DFS dfs = new DFS(G);
 		dfs.runDFS(0);
-		dfs.printPathsToSource();
+		//dfs.printPathsToSource();
 	}
 
 }

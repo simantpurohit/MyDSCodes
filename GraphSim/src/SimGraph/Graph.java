@@ -70,10 +70,10 @@ public class Graph {
 	public static Graph generateRandomGraph(){
 		int vertices = (int)(Math.random()*10000);
 		Graph G = new Graph(vertices);
-		for(int i=0;i<vertices*5;i++){
+		for(int i=0;i<vertices*2;i++){
 			G.addEdge((int)(Math.random()*vertices), (int)(Math.random()*vertices));
 		}
-		G.printGraph();
+		//G.printGraph();
 		return G;
 	}
 	

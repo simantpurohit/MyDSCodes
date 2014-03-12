@@ -80,6 +80,5 @@ public class DFS {
 		Graph G = Graph.generateRandomGraph();
 		DFS dfs = new DFS(G);
 		dfs.runDFS(0);
-		
 	}
 }

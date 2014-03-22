@@ -1,5 +1,6 @@
 import java.util.HashSet;
 
+//tree
 public class BST {
 	BinaryNode root;
 	BinaryNode[] path;
